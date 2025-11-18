@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edge AI - Monitoramento de Ativos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Edge AI  Monitoramento de Ativos</h1>
+        <p>Dados de <strong>{{ asset_id }}</strong> (Processamento de Anomalias na Borda)</p>
+    </header>
+    <main>
+        <section id="status-card" class="card normal">
+            <h2>Status Atual da Máquina</h2>
+            <div id="current-status">NORMAL</div>
+            <p>Última Leitura: <span id="last-update">--</span></p>
+        </section>
+        
+        <section class="alert-list-container">
+            <h2>Histórico de Alertas (Últimos 50)</h2>
+            <ul id="alerts-list">
+                <li>Aguardando primeiro alerta...</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>Sistema desenvolvido com Flask e Edge AI.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
