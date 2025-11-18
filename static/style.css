@@ -1,0 +1,133 @@
+/* style.css */
+:root {
+    --primary-color: #3f51b5;
+    --danger-color: #f44336;
+    --info-color: #2196f3;
+    --normal-color: #4caf50;
+    --bg-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    line-height: 1.6;
+    color: #333;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+header h1 {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Responsividade com Layout Flex/Grid --- */
+.card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#status-card {
+    border-left: 8px solid;
+    transition: all 0.3s ease;
+}
+
+/* Estilos de Status Dinâmicos */
+.card.normal {
+    border-color: var(--normal-color);
+}
+.card.alerta, .card.critico {
+    border-color: var(--danger-color);
+    animation: pulse-red 1s infinite alternate;
+}
+@keyframes pulse-red {
+    from { box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.7); }
+    to { box-shadow: 0 0 0 10px rgba(244, 67, 54, 0); }
+}
+
+
+#current-status {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Lista de Alertas */
+.alert-list-container {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+#alerts-list {
+    list-style: none;
+    padding: 0;
+}
+
+#alerts-list li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+#alerts-list li:last-child {
+    border-bottom: none;
+}
+
+.severity-tag {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+    margin-left: 10px;
+}
+
+.severity-tag.CRITICO {
+    background-color: var(--danger-color);
+}
+
+.severity-tag.INFO {
+    background-color: var(--info-color);
+}
+
+
+/* --- Otimização para Mobile (Garante a legibilidade e toque) --- */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+    main {
+        padding: 10px;
+    }
+    #current-status {
+        font-size: 2em;
+    }
+}
