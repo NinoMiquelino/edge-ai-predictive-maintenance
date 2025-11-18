@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+venv/
+.venv/
+
+# TensorFlow / Modelos
+# O modelo TFLite é o output, mas pode ser ignorado se for gerado no build
+anomaly_model.tflite 
+
+# Logs
+*.log
+log/
+
+# Flask / Web
+instance/
+.flaskenv
+
+# Editor/OS
+.vscode/
+.idea/
+.DS_Store
